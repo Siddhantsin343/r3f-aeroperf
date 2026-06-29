@@ -15,41 +15,47 @@
     "aeroperf"
   ],
   "license": "MIT",
-  "main":    "./dist/index.js",
-  "module":  "./dist/index.mjs",
-  "types":   "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types":   "./dist/index.d.ts",
-      "import":  "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "src"],
-  "sideEffects": ["**/*.css"],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
-    "dev":             "vite",
-    "build":           "BUILD_LIB=true vite build",
-    "build:demo":      "vite build",
-    "prepublishOnly":  "npm run build"
+    "dev": "vite",
+    "build": "cross-env BUILD_LIB=true vite build",
+    "build:demo": "vite build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "valtio": "^2.1.0"
   },
   "peerDependencies": {
     "@react-three/fiber": ">=8.0",
-    "react":              ">=18.0",
-    "react-dom":          ">=18.0",
-    "three":              ">=0.150.0"
+    "react": ">=18.0",
+    "react-dom": ">=18.0",
+    "three": ">=0.150.0"
   },
   "devDependencies": {
-    "@react-three/drei":  "^10.7.7",
+    "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@vitejs/plugin-react": "^4.3.0",
-    "react":              "^19.2.7",
-    "react-dom":          "^19.2.7",
-    "three":              "^0.184.0",
-    "vite":               "^5.4.0",
+    "cross-env": "^10.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.184.0",
+    "vite": "^5.4.0",
     "vite-plugin-css-injected-by-js": "^3.5.2"
   }
 }
