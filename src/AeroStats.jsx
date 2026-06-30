@@ -13,8 +13,7 @@ function formatBytes(bytes) {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`
 }
 
-/**
- * Luxury circular stat bubbles — matches the wireframe circles layout.
+/**bubble
  */
 export function AeroStats() {
   const drawCalls  = useAero((s) => s.drawCalls)
@@ -25,12 +24,12 @@ export function AeroStats() {
   const points     = useAero((s) => s.points)
 
   const stats = [
-    { label: 'TRIANGLES',  value: formatNum(triangles),  color: '#00ff37ff' },
-    { label: 'DRAW CALLS', value: formatNum(drawCalls),  color: '#006effff' },
-    { label: 'TEXTURES',   value: formatNum(textures),   color: '#ff00ffff' },
-    { label: 'GEOMETRIES', value: formatNum(geometries), color: '#fff700ff' },
+    { label: 'TRIANGLES',  value: formatNum(triangles),  color: '#e2b30bf4' },
+    { label: 'DRAW CALLS', value: formatNum(drawCalls),  color: '#ffffffff' },
+    { label: 'TEXTURES',   value: formatNum(textures),   color: '#44b876ff' },
+    { label: 'GEOMETRIES', value: formatNum(geometries), color: '#dad6609d' },
     { label: 'LINES',      value: formatNum(lines),      color: '#cc00ffff' },
-    { label: 'POINTS',     value: formatNum(points),     color: '#00e5ff' },
+    { label: 'POINTS',     value: formatNum(points),     color: '#155afcc7' },
   ]
 
   return (

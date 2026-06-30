@@ -19,7 +19,7 @@
   --aero-mono:        'Orbitron', 'Share Tech Mono', monospace;
   --aero-display:     'Rajdhani', 'Arial Narrow', sans-serif;
 
-  --aero-fps:         #00e5ff;
+  --aero-fps:         #00ffd0;
   --aero-gpu:         #ff9500;
   --aero-cpu:         #b06cff;
   --aero-danger:      #ff3d3d;
@@ -94,7 +94,9 @@
 .aero-panel.bottom-right { bottom: 12px; right: 12px; }
 .aero-panel.minimal      { width: 220px; }
 
-/* Panel */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Panel Header
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-panel-header {
   display: flex;
@@ -129,7 +131,9 @@
 
 .aero-panel-header-btns { display: flex; gap: 4px; }
 
-/* Icon BTN */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Icon Buttons
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-icon-btn {
   display: flex;
@@ -154,7 +158,9 @@
 
 .aero-icon-btn:active { transform: scale(0.92); }
 
-/* Cockpit */
+/* ─────────────────────────────────────────────────────────────────────────────
+   3-Column Cockpit Layout
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-cockpit {
   display: flex;
@@ -162,7 +168,7 @@
   gap: 0;
 }
 
-/* Side Panel */
+/* ── Side Panels ──────────────────────────────────────────────────────────── */
 
 .aero-side-panel {
   display: flex;
@@ -264,7 +270,7 @@
   flex-shrink: 0;
 }
 
-/* Center */
+/* ── Center Column ────────────────────────────────────────────────────────── */
 
 .aero-center-col {
   flex: 1;
@@ -294,7 +300,9 @@
   z-index: 1;
 }
 
-/* Graph Section */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Graph Section
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-graph-container {
   position: relative;
@@ -337,7 +345,9 @@
 .aero-legend-dot.gpu { background: var(--aero-gpu); box-shadow: 0 0 4px var(--aero-gpu); }
 .aero-legend-dot.cpu { background: var(--aero-cpu); box-shadow: 0 0 4px var(--aero-cpu); }
 
-/* Stats Section */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Stats Section
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-stats-section {
   border-top: 1px solid var(--aero-border);
@@ -433,7 +443,9 @@
   text-align: center;
 }
 
-/* VRAM */
+/* ─────────────────────────────────────────────────────────────────────────────
+   VRAM Bar
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-vram {
   padding: 6px var(--aero-pad) 8px;
@@ -466,7 +478,9 @@
   box-shadow: 0 0 6px rgba(0, 229, 255, 0.35);
 }
 
-/* PILLS */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Minimized Pill
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-panel-pill {
   position: fixed; z-index: 9999;
@@ -501,11 +515,15 @@
 .aero-panel-pill.bottom-left  { bottom: 12px; left: 12px; }
 .aero-panel-pill.bottom-right { bottom: 12px; right: 12px; }
 
-/* DIAL SEC */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Gauge Canvas
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .aero-gauge { display: block; position: relative; cursor: pointer; }
 
-/* Animation */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────────────────────────────────────── */
 
 @keyframes aero-fade-in {
   from { opacity: 0; transform: translateY(-10px) scale(0.97); }

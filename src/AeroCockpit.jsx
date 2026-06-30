@@ -4,7 +4,7 @@ import { AeroDial }            from './AeroDial'
 import { useAero, aeroActions } from './useAero'
 import { useState, useEffect }  from 'react'
 
-// ─── Responsive dial size hook ───────────────────────────────────────────────
+// ─── Responsive Dial size hook ───────────────────────────────────────────────
 
 function useResponsiveGaugeSize() {
   const [size, setSize] = useState(() => {
@@ -98,7 +98,7 @@ function RightPanel() {
       <div className="aero-side-divider" />
 
       <div className="aero-side-metric align-right">
-        <div className="aero-side-value" style={{ color: '#b06cff' }}>
+        <div className="aero-side-value" style={{ color: '#bef57cff' }}>
           {drawCalls >= 1000 ? `${(drawCalls/1000).toFixed(1)}K` : drawCalls}
         </div>
         <div className="aero-side-label">DRAW CALLS</div>
@@ -110,7 +110,7 @@ function RightPanel() {
       <div className="aero-side-divider" />
 
       <div className="aero-side-metric align-right">
-        <div className="aero-side-value" style={{ color: '#ff9500' }}>
+        <div className="aero-side-value" style={{ color: '#6dab8fff' }}>
           {triangles >= 1000 ? `${(triangles/1000).toFixed(1)}K` : triangles}
         </div>
         <div className="aero-side-label">TRIANGLES</div>
@@ -173,7 +173,7 @@ function PauseBtn({ paused, onClick }) {
   )
 }
 
-// ───  Pill ───────────────────────────────────────────────────────────
+// ─── Minimized Pill ───────────────────────────────────────────────────────────
 
 function MinimizedPill({ position, fps, onClick }) {
   return (

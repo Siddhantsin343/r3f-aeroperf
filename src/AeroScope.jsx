@@ -2,15 +2,13 @@ import { useRef, useEffect, useCallback } from 'react'
 import { getAero } from './useAero'
 
 const COLORS = {
-  fps:  '#00e5ff',
+  fps:  '#00ffd0',   
   gpu:  '#ff9500',
   cpu:  '#b06cff',
   grid: 'rgba(20, 35, 50, 0.8)',
 }
 
 /**
- * Real-time performance graph — luxury EV instrument style.
- * 60 fps draw rate, smooth bezier lines with gradient fills.
  */
 export function AeroScope({ width = 210, height = 56 }) {
   const canvasRef   = useRef(null)

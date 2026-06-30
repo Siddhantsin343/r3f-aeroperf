@@ -9,7 +9,7 @@ const GAUGE_MODES = {
     getValue:   (s) => s.fps,
     getPercent: (v, min, max) => Math.min(Math.max((v - min) / (max - min), 0), 1),
     getHealth:  (pct) => pct > 0.7 ? 'good' : pct > 0.35 ? 'warn' : 'bad',
-    colorGood: '#00e5ff', colorWarn: '#ffaa00', colorBad: '#ff3d3d',
+    colorGood: '#11ff00bb', colorWarn: '#ffaa00', colorBad: '#ff3d3d',
     glowBase:  'rgba(0, 229, 255, 0.28)',
   },
   gpu: {
@@ -25,7 +25,7 @@ const GAUGE_MODES = {
     getValue:   (s) => s.cpuTime,
     getPercent: (v, min, max) => Math.min(Math.max((v - min) / (max - min), 0), 1),
     getHealth:  (pct) => pct < 0.4 ? 'good' : pct < 0.75 ? 'warn' : 'bad',
-    colorGood: '#b06cff', colorWarn: '#cc88ff', colorBad: '#ff3d3d',
+    colorGood: '#b06cff', colorWarn: '#88beffff', colorBad: '#ff3d3d',
     glowBase:  'rgba(176, 108, 255, 0.28)',
   },
 }
@@ -183,24 +183,6 @@ function drawGauge(ctx, displayValue, mode, size) {
     ctx.stroke()
   }
 
-  // ── Needle ────────────────────────────────────────────────────────────
-  // const needleAngle = valueAngle
-  // const needleLen   = innerR - Math.round(size * 0.055)
-  // const nTipX  = cx + Math.cos(needleAngle) * needleLen
-  // const nTipY  = cy + Math.sin(needleAngle) * needleLen
-  // const nBaseX = cx + Math.cos(needleAngle + Math.PI) * Math.round(size * 0.07)
-  // const nBaseY = cy + Math.sin(needleAngle + Math.PI) * Math.round(size * 0.07)
-
-  // ctx.shadowColor = activeColor
-  // ctx.shadowBlur  = Math.round(size * 0.06)
-  // ctx.beginPath()
-  // ctx.moveTo(nBaseX, nBaseY)
-  // ctx.lineTo(nTipX, nTipY)
-  // ctx.strokeStyle = activeColor
-  // ctx.lineWidth   = Math.max(1, Math.round(size * 0.012))
-  // ctx.lineCap     = 'round'
-  // ctx.stroke()
-  // ctx.shadowBlur  = 0
 
   // ── Value text ────────────────────────────────────────────────────────
   const fontSize = size * 0.24
