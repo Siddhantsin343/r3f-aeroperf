@@ -6,11 +6,11 @@ Drop a single component inside your canvas`<Aero>` and get a modern-style overla
 
 ---
 
-<p align="center">
-  <img src="./public/main.png" alt="AeroPerf Preview" width="250">
+<p >
+  <img src="./public/main.png" alt="AeroPerf Preview" height="280" width="650">
 </p>
 <p >
-  <img src="./public/dot-fps.png" alt="AeroPerf Preview" width="250">
+  <img src="./public/dot-fps.png" alt="AeroPerf Preview"  height="280" width="650">
 </p>
 <p >
   <img src="./public/large.png" alt="AeroPerf Preview" width="900">
