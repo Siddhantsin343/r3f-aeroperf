@@ -1,20 +1,30 @@
 {
   "name": "r3f-aeroperf",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "A lightweight performance measurement library for Three.js and React Three Fiber, supporting WebGL and WebGPU.",
   "keywords": [
     "react",
     "three",
-    "webgpu",
+    "threejs",
+    "react-three-fiber",
     "r3f",
+    "webgl",
+    "webgpu",
     "performance",
+    "stats",
     "monitor",
-    "profiling",
-    "cockpit",
-    "hud",
     "aeroperf"
   ],
+  "author": "Siddhant Singh",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siddhantsin343/r3f-aeroperf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Siddhantsin343/r3f-aeroperf/issues"
+  },
+  "homepage": "https://github.com/Siddhantsin343/r3f-aeroperf#readme",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -27,14 +37,14 @@
   },
   "files": [
     "dist",
-    "src"
+    "LICENSE"
   ],
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "cross-env BUILD_LIB=true vite build",
+    "build": "cross-env BUILD_LIB=true vite build && node -e \"require('fs').copyFileSync('index.d.ts','dist/index.d.ts')\"",
     "build:demo": "vite build",
     "prepublishOnly": "npm run build"
   },
