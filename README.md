@@ -1,8 +1,20 @@
 # ✈️ r3f-aeroperf
 
-**A lightweight, real-time performance HUD for [React Three Fiber], with full support for both WebGL and WebGPU renderers.**
+**A lightweight, real-time performance HUD for React Three Fiber , with full support for both WebGL and WebGPU renderers.**
 
-Drop a single component inside your `<Canvas>` and get a fighter-jet-cockpit-style overlay showing FPS, GPU/CPU frame timing, draw calls, triangle counts, VRAM usage, and more — updated live, every frame.
+Drop a single component inside your canvas`<Aero>` and get a modern-style overlay showing FPS, GPU/CPU frame timing, draw calls, triangle counts, VRAM usage, and more — updated live, every frame.
+
+---
+
+<p align="center">
+  <img src="./public/main.png" alt="AeroPerf Preview" width="900">
+</p>
+<p align="center">
+  <img src="./public/dot-fps.png" alt="AeroPerf Preview" width="900">
+</p>
+<p align="center">
+  <img src="./public/large.png" alt="AeroPerf Preview" width="900">
+</p>
 
 ---
 
@@ -90,61 +102,6 @@ For a compact readout with no gauge or graph:
 ```jsx
 <AeroPerf minimal showVRAM={false} />
 ```
-
-### Reading metrics elsewhere in your app
-
-Because state lives in a shared Valtio store, you can subscribe to live metrics from **any** component — not just the built-in panel:
-
-```jsx
-import { useAero } from 'r3f-aeroperf'
-
-function FpsBadge() {
-  const fps = useAero((s) => s.fps)
-  return <div>{Math.round(fps)} FPS</div>
-}
-```
-
-For non-reactive reads (e.g. inside a `useFrame` render loop, where you don't want re-renders):
-
-```jsx
-import { getAero } from 'r3f-aeroperf'
-
-useFrame(() => {
-  const { fps, gpuTime } = getAero()
-  // ...
-})
-```
-
-### Controlling the panel programmatically
-
-```jsx
-import { aeroActions } from 'r3f-aeroperf'
-
-aeroActions.togglePaused()      // pause/resume metric collection
-aeroActions.toggleExpanded()    // show/hide the detailed stats grid
-aeroActions.toggleHidden()      // minimize/restore the panel
-aeroActions.setFpsLimit(120)    // change the "overclocking" reference FPS
-aeroActions.setThresholds({ fps: 45 })  // update alert thresholds
-aeroActions.cycleGaugeMode()    // cycle the dial between fps → gpu → cpu
-```
-
-### Using the pieces independently
-
-Advanced users can assemble their own layout from the individual building blocks instead of `<AeroPerf />`:
-
-```jsx
-import { AeroCore, AeroCockpit } from 'r3f-aeroperf'
-
-<Canvas>
-  <AeroCore logsPerSecond={15} />
-</Canvas>
-
-// Anywhere in your regular DOM tree:
-<AeroCockpit position="top-right" showGauge={false} />
-```
-
-`AeroCore` is the headless data collector (must live inside `<Canvas>`); `AeroCockpit` is the visual panel and can be rendered anywhere since it just reads from the shared store.
-
 ---
 
 ## Props Reference
@@ -164,83 +121,6 @@ import { AeroCore, AeroCockpit } from 'r3f-aeroperf'
 | `warnThresholds`  | `{ fps?: number, gpu?: number, cpu?: number }`                  | `{}`         | Values below/above which metrics are flagged as alerts         |
 | `className`       | `string`                                                        | —            | CSS class applied to the portal wrapper                        |
 | `style`           | `CSSProperties`                                                 | —            | Inline style applied to the portal wrapper                     |
-
-### `<AeroCockpit />`
-
-Accepts `position`, `showGraph`, `showGauge`, `minimal`, `showVRAM` — same meaning as above. Used internally by `AeroPerf`, or standalone if you manage `AeroCore` yourself.
-
-### `<AeroCore />`
-
-| Prop            | Type     | Default | Description                             |
-|------------------|----------|---------|------------------------------------------|
-| `logsPerSecond`  | `number` | `10`    | How often full scene stats are recomputed |
-
----
-
-## Store Shape (`useAero` / `getAero`)
-
-```ts
-{
-  fps, frameTime, gpuTime, cpuTime,
-  drawCalls, triangles, geometries, textures, shaders, lines, points, vramBytes,
-  history: { fps: number[], gpu: number[], cpu: number[], circularId: number },
-  paused, expanded, hidden, tab, gaugeMode, // 'fps' | 'gpu' | 'cpu'
-  fpsLimit, overclocking,
-  alertFps, alertGpu, alertCpu,
-  fpsWarnThreshold, gpuWarnThreshold, cpuWarnThreshold,
-}
-```
-
-## Actions (`aeroActions`)
-
-| Action                      | Description                                      |
-|-------------------------------|---------------------------------------------------|
-| `updateMetrics(partial)`      | Merge new metrics into state, recompute alerts    |
-| `pushToHistory(fps, gpu, cpu)`| Push a sample into the circular history buffer    |
-| `togglePaused()`               | Pause/resume metric collection                    |
-| `toggleExpanded()`             | Show/hide the detailed stats grid                 |
-| `toggleHidden()`               | Minimize/restore the whole panel                  |
-| `setHidden(bool)`              | Explicitly set hidden state                       |
-| `setTab(tab)`                  | Set the active tab                                |
-| `setFpsLimit(n)`               | Update the FPS target used for overclock detection|
-| `setThresholds({fps,gpu,cpu})` | Update alert thresholds                            |
-| `cycleGaugeMode()`             | Cycle the dial: FPS → GPU → CPU                    |
-
----
-
-## Components at a Glance
-
-| Component      | Purpose                                                                 |
-|------------------|----------------------------------------------------------------------------|
-| `AeroPerf`       | Top-level component — mounts `AeroCore` + `AeroCockpit` via a DOM portal   |
-| `AeroCore`       | Headless per-frame data collector (place inside `<Canvas>`)               |
-| `AeroCockpit`    | The visual overlay panel (header, gauge, graph, side telemetry, stats)    |
-| `AeroDial`       | Canvas-drawn circular gauge, click to cycle FPS/GPU/CPU                   |
-| `AeroScope`      | Canvas-drawn scrolling line graph of FPS/GPU/CPU history                  |
-| `AeroStats`      | Expanded grid of scene stats (triangles, draw calls, textures, etc.)      |
-| `AeroVRAM`       | Estimated VRAM usage bar                                                  |
-| `AeroMetrics`    | Alternate compact digital readout row (GPU/CPU/FPS/Frame)                 |
-| `AeroMount`      | Utility that portals React children out of the `<Canvas>` into real DOM   |
-| `useAero`        | React hook to subscribe to store state (optionally with a selector)       |
-| `getAero`        | Non-reactive direct read of the store, safe for use inside `useFrame`     |
-| `aeroActions`     | Imperative actions to control panel/store state                          |
-
----
-
-## Screenshots
-
-> _Add screenshots or a short GIF of the panel here to give users a preview before they install._
-
-```md
-<img width="390" height="301" alt="Screenshot 2026-07-02 222104" src="https://github.com/user-attachments/assets/3748f5aa-d06e-41e7-a09c-fb3753ad46b9" />
-
-```
-
-Suggested shots to capture:
-1. The default top-left panel with gauge + graph visible, running against a live scene
-2. The expanded state showing the "SCENE METRICS" stats grid (triangles, draw calls, textures…)
-3. The minimized floating pill state
-4. The VRAM bar in both normal and "critical" (>80%) states
 
 ---
 
