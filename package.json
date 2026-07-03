@@ -1,6 +1,6 @@
 {
   "name": "r3f-aeroperf",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight performance measurement library for Three.js and React Three Fiber, supporting WebGL and WebGPU.",
   "keywords": [
     "react",
