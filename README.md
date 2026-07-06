@@ -1,5 +1,10 @@
 # ✈️ r3f-aeroperf
 
+[![npm version](https://img.shields.io/npm/v/r3f-aeroperf)](https://www.npmjs.com/package/r3f-aeroperf)
+![License](https://img.shields.io/npm/l/r3f-aeroperf)
+![Downloads](https://img.shields.io/npm/dw/r3f-aeroperf)
+
+
 **A lightweight, real-time performance HUD for React Three Fiber , with full support for both WebGL and WebGPU renderers.**
 
 Drop a single component inside your canvas`<Aero>` and get a modern-style overlay showing FPS, GPU/CPU frame timing, draw calls, triangle counts, VRAM usage, and more — updated live, every frame.
@@ -7,14 +12,14 @@ Drop a single component inside your canvas`<Aero>` and get a modern-style overla
 ---
 
 <p >
-  <img src="https://github.com/Siddhantsin343/r3f-aeroperf/blob/main/public/main.png" alt="AeroPerf Preview" height="280" width="450">
+<img width="487" height="330" alt="Screenshot 2026-07-07 023403" src="https://github.com/user-attachments/assets/a007cd7d-358b-4415-8c85-b944a05f0d9c" />
 </p>
 
 <p >
-  <img src="https://github.com/Siddhantsin343/r3f-aeroperf/blob/main/public/dot-fps.png" alt="AeroPerf Preview"  height="280" width="650">
+  <img width="476" height="330" alt="Screenshot 2026-07-07 023426" src="https://github.com/user-attachments/assets/c271746c-d4de-461b-80df-c29b7f815510" />
 </p>
 <p >
-  <img src="https://github.com/Siddhantsin343/r3f-aeroperf/blob/main/public/large.png" alt="AeroPerf Preview" width="900">
+  <img width="487" height="352" alt="Screenshot 2026-07-07 023437" src="https://github.com/user-attachments/assets/75ced878-fd43-424e-af37-3e4ab80f24b5" />
 </p>
 
 ---
