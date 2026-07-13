@@ -37,7 +37,6 @@ Drop a single component inside your canvas`<Aero>` and get a modern-style overla
 - 🖥️ **4 dock positions** (`top-left`, `top-right`, `bottom-left`, `bottom-right`)
 - 🔽 **Minimizable** to a small floating pill, **pausable**, and **expandable** to a detailed stats grid
 - 🪶 **Minimal mode** for a compact, graph/gauge-free readout
-- 🧠 **Global store powered by [Valtio](https://github.com/pmndrs/valtio)** — read metrics anywhere via `useAero()` or `getAero()`, independent of the panel UI
 - 🎨 Ships with its own scoped CSS (`aero.css`), auto-injected on import
 
 ---
