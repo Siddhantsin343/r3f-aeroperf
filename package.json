@@ -1,6 +1,6 @@
 {
   "name": "r3f-aeroperf",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A modern performance HUD for React Three Fiber, built on top of r3f-webgpu-perf, featuring a redesigned UI and enhanced visualizations for WebGL and WebGPU.",
   "keywords": [
     "react",
