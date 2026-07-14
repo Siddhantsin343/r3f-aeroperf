@@ -5,9 +5,17 @@
 ![Downloads](https://img.shields.io/npm/dw/r3f-aeroperf)
 
 
-**A lightweight, real-time performance HUD for React Three Fiber , with full support for both WebGL and WebGPU renderers.**
+**A modern performance HUD for React Three Fiber, built on top of r3f-webgpu-perf, featuring a redesigned UI, enhanced visualizations, and support for both WebGL and WebGPU renderers.**
 
 Drop a single component inside your canvas`<Aero>` and get a modern-style overlay showing FPS, GPU/CPU frame timing, draw calls, triangle counts, VRAM usage, and more — updated live, every frame.
+
+---
+
+## Acknowledgements
+
+AeroPerf is built on top of r3f-webgpu-perf.
+
+The original project provides the core performance monitoring implementation. AeroPerf focuses on a redesigned HUD, improved visualizations, and additional features.
 
 ---
 
